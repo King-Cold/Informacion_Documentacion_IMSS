@@ -1,49 +1,49 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IMSS - Centro de Solicitudes</title>
-<link rel="stylesheet" href="../css/estilos.css">
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IMSS - Centro de Solicitudes</title>
+    <link rel="stylesheet" href="../css/estilos_contenido.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  </head>
 
-<body>
+  <body>
+    <header class="navbar">
+      <h2>Centro de Solicitudes IMSS</h2>
+    </header>
 
-<header class="navbar">
-<h2>Centro de Solicitudes IMSS</h2>
-</header>
+   <section class="panel">
+  <h1>Selecciona un trámite</h1>
 
-<section class="panel">
+  <div class="search-container">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="text" id="buscador" onkeyup="filtrarTramites()" placeholder="Buscar trámite por título...">
+  </div>
 
-<h1>Selecciona un trámite</h1>
+  <div class="contenedor" id="lista-tramites">
+    <div class="card clickable" onclick="ir('../tramites/citas.html')">
+      <div class="card-top"><i class="fa-solid fa-file"></i></div>
+      <div class="card-bottom"><h3>Citas Médicas</h3></div>
+    </div>
 
-<div class="contenedor">
+    <div class="card clickable" onclick="ir('../tramites/altas.html')">
+      <div class="card-top"><i class="fa-solid fa-file"></i></div>
+      <div class="card-bottom"><h3>Alta Patronal</h3></div>
+    </div>
 
-<div class="card" onclick="ir('../tramites/incapacidad.html')">
-<h3>Incapacidades</h3>
-<p>Información sobre incapacidades médicas.</p>
-</div>
+    <div class="card clickable" onclick="ir('../tramites/nss.html')">
+      <div class="card-top"><i class="fa-solid fa-file"></i></div>
+      <div class="card-bottom"><h3>Número de Seguridad Social</h3></div>
+    </div>
 
-<div class="card">
-<h3>Citas Médicas</h3>
-<p>Solicitar o consultar citas.</p>
-</div>
-
-<div class="card">
-<h3>Afiliación</h3>
-<p>Registro o actualización de datos.</p>
-</div>
-
-<div class="card">
-<h3>Pensiones</h3>
-<p>Información sobre pensiones.</p>
-</div>
-
-</div>
-
+    <div class="card clickable" onclick="ir('../tramites/vigencia.html')">
+      <div class="card-top"><i class="fa-solid fa-file-lines"></i></div>
+      <div class="card-bottom"><h3>Vigencia de Derechos</h3></div>
+    </div>
+  </div>
 </section>
 
-<script src="../js/script.js"></script>
-
-</body>
+    <script src="../js/script.js"></script>
+  </body>
 </html>

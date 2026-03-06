@@ -1,0 +1,195 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Montserrat";
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* NAVBAR */
+
+.navbar {
+  background: #0066cc;
+  color: white;
+  text-align: center;
+  padding: 18px;
+  font-size: 18px;
+  position: sticky;
+  top: 0;
+}
+
+/* PANEL */
+
+.panel {
+  padding: 30px;
+  text-align: center;
+}
+
+/* CONTENEDOR */
+
+.contenedor {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+/* TARJETAS */
+
+.card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: 0.3s;
+  width: 300px;
+  max-width: 90%;
+  transition: 0.3s;
+}
+
+.card:hover {
+  background-color: #0066cc;
+  color: white;
+}
+
+.card-top {
+  background-color: #6c2bd9;
+  border-radius: 10px 10px 0px 0px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card-top i {
+  color: white;
+  font-size: 40px;
+}
+
+/* PAGINA DE TRAMITE */
+
+.tramite {
+  max-width: 800px;
+  margin: auto;
+  padding: 25px;
+}
+
+/* FAQ */
+
+.accordion {
+  background: #e9ecef;
+  cursor: pointer;
+  padding: 15px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  font-size: 16px;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+.panel-faq {
+  display: none;
+  padding: 10px;
+  background: white;
+  border-left: 4px solid #0066cc;
+}
+
+.hero {
+  padding: 40px;
+}
+
+.hero-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.hero-img img {
+  width: 100%;
+  max-width: 600px;
+}
+
+.hero-text {
+  max-width: 500px;
+}
+
+.hero-text h1 {
+  font-size: 40px;
+  color: #0c5c3f;
+}
+
+.hero-text p {
+  font-size: 18px;
+  margin: 20px 0;
+}
+
+.btn {
+  background: #0c5c3f;
+  color: white;
+  padding: 14px 25px;
+  text-decoration: none;
+  border-radius: 6px;
+}
+
+.search-container {
+  position: relative;
+  max-width: 500px;
+  margin: 0 auto 30px auto; /* Centrado con margen inferior */
+}
+
+.search-container i {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #008d7e;
+  opacity: 0.6;
+}
+
+#buscador {
+  width: 100%;
+  padding: 12px 12px 12px 45px;
+  font-size: 16px;
+  background-color: #ffffff; /* Tu negro para no cansar la vista */
+  color: #3e3e3e;
+  border: 1px solid #333333;
+  border-radius: 25px; /* Bordes redondeados modernos */
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+#buscador:focus {
+  border-color: #1c1c1c;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.05);
+}
+/* RESPONSIVE */
+
+/* Tablet */
+@media (max-width: 900px) {
+  .card {
+    width: 45%;
+  }
+}
+
+/* Celular */
+@media (max-width: 600px) {
+  .card {
+    width: 100%;
+  }
+
+  .navbar {
+    font-size: 16px;
+  }
+
+  .panel {
+    padding: 15px;
+  }
+}
