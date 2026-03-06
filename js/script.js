@@ -2,24 +2,48 @@ function ir(pagina){
 window.location.href = pagina;
 }
 
-document.addEventListener("DOMContentLoaded", function(){
+/* ACORDEON FAQ */
 
-let preguntas = document.querySelectorAll(".accordion");
+var acc = document.getElementsByClassName("accordion");
 
-preguntas.forEach(p => {
+for (let i = 0; i < acc.length; i++) {
 
-p.addEventListener("click", function(){
+acc[i].addEventListener("click", function () {
 
-let panel = this.nextElementSibling;
+this.classList.toggle("active");
 
-panel.style.display =
-panel.style.display === "block" ? "none" : "block";
+var panel = this.nextElementSibling;
+
+if (panel.style.maxHeight) {
+panel.style.maxHeight = null;
+} else {
+panel.style.maxHeight = panel.scrollHeight + "px";
+}
 
 });
 
-});
+}
 
+/* BOTON SUBIR */
+
+let btnSubir = document.getElementById("btnSubir");
+
+window.onscroll = function () {
+
+if (document.documentElement.scrollTop > 200) {
+btnSubir.style.display = "block";
+} else {
+btnSubir.style.display = "none";
+}
+
+};
+
+btnSubir.onclick = function () {
+window.scrollTo({
+top: 0,
+behavior: "smooth"
 });
+};
 
 function filtrarTramites() {
   // 1. Obtener el valor del buscador

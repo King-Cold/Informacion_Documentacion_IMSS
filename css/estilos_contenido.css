@@ -11,44 +11,49 @@ body {
   display: flex;
   flex-direction: column;
 }
-.panel{
-background-color: #F5F8FB;
-height: 100%;
+.panel {
+  background-color: #f5f8fb;
+  height: 100%;
 }
 /* NAVBAR */
-.navbar{
-display:flex;
-align-items:center;
-justify-content:flex-start;
-background:#1e293b;
-color:white;
-padding:15px 20px;
-position:relative;
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background: #235b4e;
+  color: white;
+  padding: 15px 20px;
+  position: relative;
 }
 
-.navbar h2{
-position:absolute;
-left:50%;
-transform:translateX(-50%);
-margin:0;
+.navbar h2 {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
 }
 
-.btn-volver{
-display:flex;
-align-items:center;
-gap:8px;
-text-decoration:none;
-background:#9F2241;
-color:white;
-padding:8px 14px;
-border-radius:6px;
-font-size:14px;
-transition:0.3s;
-font-weight:bolder;
-letter-spacing:1.5px;
+.btn-volver {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+  background: #9f2241;
+  color: white;
+  padding: 10px 18px; /* tamaño fijo */
+  border-radius: 6px;
+  font-size: 14px; /* tamaño fijo */
+  font-weight: 700;
+  letter-spacing: 1px;
+  min-width: 120px; /* evita que cambie de tamaño */
+  height: 40px; /* altura fija */
+
+  transition: 0.3s;
 }
-.btn-volver:hover{
-background:#9b334d;
+
+.btn-volver:hover {
+  background: #9b334d;
 }
 /* PANEL */
 
@@ -81,12 +86,12 @@ background:#9b334d;
 }
 
 .card:hover {
-  background-color: #DDC9A3;
+  background-color: #9f2241;
   color: white;
 }
 
 .card-top {
-  background-color: #00A289;
+  background-color: #bc955c;
   border-radius: 10px 10px 0px 0px;
   height: 120px;
   display: flex;
@@ -104,30 +109,104 @@ background:#9b334d;
   max-width: 800px;
   margin: auto;
   padding: 25px;
-  background-color: #F5F8FB;
+  background-color: #f5f8fb;
 }
-
+.tramite h1 {
+  color: #9b334d;
+  padding-left: 10px;
+  border-left: #9b334d 10px solid;
+}
+.tramite h2 {
+  color: #bc955c;
+  padding-bottom: 10px;
+  border-bottom: #bc955c 5px solid;
+}
 /* FAQ */
-
 .accordion {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background: #e9ecef;
   cursor: pointer;
   padding: 15px;
   width: 100%;
   border: none;
-  text-align: left;
   font-size: 16px;
   margin-top: 10px;
   border-radius: 5px;
+  transition: 0.3s;
+  font-family: "Montserrat", sans-serif;
+}
+.accordion.active{
+background:#235B4E;
+color:white;
+}
+.accordion:hover {
+  background: #dde3e8;
+}
+
+.icono {
+  transition: 0.3s;
+}
+
+.accordion.active .icono {
+  transform: rotate(45deg);
 }
 
 .panel-faq {
-  display: none;
-  padding: 10px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
   background: white;
-  border-left: 4px solid #0066cc;
+  padding: 0 10px;
+  border-left: 4px solid #278670;
+}
+.panel-navegacion {
+  position: sticky;
+  top: 0;
+  background: #235b4e;
+  padding: 12px;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  z-index: 1000;
+  flex-wrap: wrap;
 }
 
+.panel-navegacion a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+.panel-navegacion a:hover {
+  color: #bc955c;
+}
+#btnSubir {
+  position: fixed;
+  left: 20px;
+  bottom: 30px;
+  background: #9f2241;
+  color: white;
+  border: none;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+  display: none;
+  transition: 0.3s;
+  z-index: 999;
+}
+
+#btnSubir:hover {
+  background: #7c1b34;
+}
 .hero {
   padding: 40px;
 }
@@ -207,15 +286,45 @@ background:#9b334d;
 }
 
 /* Celular */
-@media (max-width:600px){
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    gap: 10px;
+  }
 
-.navbar{
-flex-direction:column;
-gap:10px;
-}
+  .navbar h2 {
+    position: static;
+    transform: none;
+  }
+  .panel-navegacion {
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 10px;
+    padding: 10px;
+  }
 
-.navbar h2{
-position:static;
-transform:none;
-}
+  .panel-navegacion a span {
+    display: none; /* solo iconos */
+  }
+
+  .panel-navegacion a {
+    font-size: 14px;
+  }
+
+  .tramite {
+    padding: 25px;
+  }
+
+  .accordion {
+    font-size: 15px;
+    padding: 12px;
+  }
+
+  #btnSubir {
+    left: 10px;
+    bottom: 20px;
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
 }
