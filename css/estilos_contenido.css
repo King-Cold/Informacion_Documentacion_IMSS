@@ -11,19 +11,45 @@ body {
   display: flex;
   flex-direction: column;
 }
-
+.panel{
+background-color: #F5F8FB;
+height: 100%;
+}
 /* NAVBAR */
-
-.navbar {
-  background: #0066cc;
-  color: white;
-  text-align: center;
-  padding: 18px;
-  font-size: 18px;
-  position: sticky;
-  top: 0;
+.navbar{
+display:flex;
+align-items:center;
+justify-content:flex-start;
+background:#5C93BD;
+color:white;
+padding:15px 20px;
+position:relative;
 }
 
+.navbar h2{
+position:absolute;
+left:50%;
+transform:translateX(-50%);
+margin:0;
+}
+
+.btn-volver{
+display:flex;
+align-items:center;
+gap:8px;
+text-decoration:none;
+background:#BC955C;
+color:white;
+padding:8px 14px;
+border-radius:6px;
+font-size:14px;
+transition:0.3s;
+font-weight:bolder;
+letter-spacing:1.5px;
+}
+.btn-volver:hover{
+background:#b69e7c;
+}
 /* PANEL */
 
 .panel {
@@ -55,12 +81,12 @@ body {
 }
 
 .card:hover {
-  background-color: #0066cc;
+  background-color: #DDC9A3;
   color: white;
 }
 
 .card-top {
-  background-color: #6c2bd9;
+  background-color: #00A289;
   border-radius: 10px 10px 0px 0px;
   height: 120px;
   display: flex;
@@ -78,6 +104,7 @@ body {
   max-width: 800px;
   margin: auto;
   padding: 25px;
+  background-color: #F5F8FB;
 }
 
 /* FAQ */
@@ -180,16 +207,15 @@ body {
 }
 
 /* Celular */
-@media (max-width: 600px) {
-  .card {
-    width: 100%;
-  }
+@media (max-width:600px){
 
-  .navbar {
-    font-size: 16px;
-  }
+.navbar{
+flex-direction:column;
+gap:10px;
+}
 
-  .panel {
-    padding: 15px;
-  }
+.navbar h2{
+position:static;
+transform:none;
+}
 }
