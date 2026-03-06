@@ -20,7 +20,7 @@ height: 100%;
 display:flex;
 align-items:center;
 justify-content:flex-start;
-background:#5C93BD;
+background:#1e293b;
 color:white;
 padding:15px 20px;
 position:relative;
@@ -38,7 +38,7 @@ display:flex;
 align-items:center;
 gap:8px;
 text-decoration:none;
-background:#BC955C;
+background:#9F2241;
 color:white;
 padding:8px 14px;
 border-radius:6px;
@@ -48,7 +48,7 @@ font-weight:bolder;
 letter-spacing:1.5px;
 }
 .btn-volver:hover{
-background:#b69e7c;
+background:#9b334d;
 }
 /* PANEL */
 
