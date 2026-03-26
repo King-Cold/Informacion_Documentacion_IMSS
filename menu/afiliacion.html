@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IMSS - Afiliación y Vigencia</title>
+    <link rel="stylesheet" href="../css/estilos_contenido.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <header class="panel-superior">
+        <div class="container-custom flex-header">
+            <div class="logos-brand">
+                <img src="../img/logo-gobierno.png" alt="Gobierno de México" class="logo-gob-header">
+                <div class="separador-logos"></div>
+                <img src="../img/logo-imss.png" alt="IMSS" class="logo-imss">
+            </div>
+            <div class="unidad-info">
+                <span class="umf">Unidad de Medicina Familiar No. 20</span>
+            </div>
+        </div>
+    </header>
+
+    <nav class="navbar-secundaria">
+        <div class="container-custom flex-nav">
+            <a href="menu.html" class="btn-volver-home">
+                <i class="fa-solid fa-arrow-left"></i> <span>Volver a Ventanillas</span>
+            </a>
+            <h2>Afiliación y Vigencia</h2>
+        </div>
+    </nav>
+
+    <main class="contenido-principal">
+        <section class="container-custom">
+            
+            <div class="introduccion">
+                <h1>Trámites Disponibles</h1>
+                <p>Busque y seleccione el trámite de afiliación que desea realizar.</p>
+            </div>
+
+           <div class="search-wrapper">
+    <div class="search-container">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="buscador-afiliacion" onkeyup="filtrarLista()" placeholder="Escribe el nombre del trámite...">
+    </div>
+</div>
+
+            <div class="lista-tramites-vertical" id="contenedor-afiliacion">
+                
+                <div class="item-tramite" onclick="ir('../tramites/nss.html')">
+                    <div class="icon-box"><i class="fa-solid fa-id-card"></i></div>
+                    <div class="texto-tramite">
+                        <h3>Asignación o Localización de NSS</h3>
+                        <p>Obtén o consulta tu Número de Seguridad Social de forma oficial.</p>
+                    </div>
+                    <i class="fa-solid fa-chevron-right flecha"></i>
+                </div>
+
+                <div class="item-tramite" onclick="ir('../tramites/vigencia.html')">
+                    <div class="icon-box"><i class="fa-solid fa-file-circle-check"></i></div>
+                    <div class="texto-tramite">
+                        <h3>Constancia de Vigencia de Derechos</h3>
+                        <p>Revisa si tú o tus beneficiarios están vigentes para recibir servicio médico.</p>
+                    </div>
+                    <i class="fa-solid fa-chevron-right flecha"></i>
+                </div>
+
+                <div class="item-tramite" onclick="ir('../tramites/semanas.html')">
+                    <div class="icon-box"><i class="fa-solid fa-calendar-days"></i></div>
+                    <div class="texto-tramite">
+                        <h3>Constancia de Semanas Cotizadas</h3>
+                        <p>Consulta el reporte detallado de tus semanas cotizadas ante el Instituto.</p>
+                    </div>
+                    <i class="fa-solid fa-chevron-right flecha"></i>
+                </div>
+
+                <div class="item-tramite" onclick="ir('../tramites/alta-clinica.html')">
+                    <div class="icon-box"><i class="fa-solid fa-hospital-user"></i></div>
+                    <div class="texto-tramite">
+                        <h3>Alta en Clínica o UMF</h3>
+                        <p>Regístrate en la Unidad de Medicina Familiar que te corresponde por tu domicilio.</p>
+                    </div>
+                    <i class="fa-solid fa-chevron-right flecha"></i>
+                </div>
+
+                <div class="item-tramite" onclick="ir('../tramites/actualizacion.html')">
+                    <div class="icon-box"><i class="fa-solid fa-user-pen"></i></div>
+                    <div class="texto-tramite">
+                        <h3>Corrección de Datos del Asegurado</h3>
+                        <p>Solicita la actualización de nombre, CURP o fecha de nacimiento.</p>
+                    </div>
+                    <i class="fa-solid fa-chevron-right flecha"></i>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function filtrarLista() {
+            let input = document.getElementById('buscador-afiliacion');
+            let filter = input.value.toUpperCase();
+            let contenedor = document.getElementById("contenedor-afiliacion");
+            let items = contenedor.getElementsByClassName('item-tramite');
+
+            for (let i = 0; i < items.length; i++) {
+                let titulo = items[i].getElementsByTagName("h3")[0];
+                let txtValue = titulo.textContent || titulo.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    items[i].style.display = "";
+                    items[i].style.animation = "fadeIn 0.3s";
+                } else {
+                    items[i].style.display = "none";
+                }
+            }
+        }
+
+        function ir(url) {
+            window.location.href = url;
+        }
+    </script>
+</body>
+</html>

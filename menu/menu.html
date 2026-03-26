@@ -1,56 +1,74 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>IMSS - Centro de Solicitudes</title>
+    <title>IMSS - Ventanillas de Atención</title>
     <link rel="stylesheet" href="../css/estilos_contenido.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  </head>
+</head>
 
-  <body>
-    <div class="panel-superior">
-<img src="../img/logo-imss.png" alt="IMSS">
-<img src="../img/logo-gobierno.jpeg" alt="Gobierno de México">
-</div>
-    <header class="navbar">
-       <a href="../index.html" class="btn-volver">
-    <i class="fa-solid fa-house"></i> 
-  </a>
-      <h2>Centro de Solicitudes IMSS</h2>
+<body>
+    <header class="panel-superior">
+        <div class="container-custom flex-header">
+            <div class="logos-brand">
+                <img src="../img/logo-gobierno.png" alt="Gobierno de México" class="logo-gob-header">
+                <div class="separador-logos"></div>
+                <img src="../img/logo-imss.png" alt="IMSS" class="logo-imss">
+            </div>
+            <div class="unidad-info">
+                <span class="umf">Unidad de Medicina Familiar No. 20</span>
+            </div>
+        </div>
     </header>
 
-   <section class="panel">
-  <h1>Selecciona un trámite</h1>
+    <nav class="navbar-secundaria">
+        <div class="container-custom flex-nav">
+            <a href="../index.html" class="btn-volver-home">
+                <i class="fa-solid fa-house"></i> <span>Inicio</span>
+            </a>
+            <h2>Centro de Solicitudes</h2>
+        </div>
+    </nav>
 
-  <div class="search-container">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <input type="text" id="buscador" onkeyup="filtrarTramites()" placeholder="Buscar trámite por título...">
-  </div>
+    <main class="contenido-principal">
+        <section class="container-custom">
+            <div class="introduccion">
+                <h1>Ventanillas de Atención</h1>
+                <p>Seleccione el área correspondiente para consultar trámites y requisitos oficiales.</p>
+            </div>
 
-  <div class="contenedor" id="lista-tramites">
-    <div class="card clickable" onclick="ir('../tramites/incapacidad.html')">
-      <div class="card-top"><i class="fa-solid fa-file"></i></div>
-      <div class="card-bottom"><h3>Citas Médicas</h3></div>
-    </div>
+            <div class="grid-ventanillas">
+                <div class="card-tramite" onclick="ir('afiliacion.html')">
+                    <div class="card-icon"><i class="fa-solid fa-user-check"></i></div>
+                    <div class="card-body">
+                        <h3>Afiliación y Vigencia</h3>
+                        <p class="card-desc">Altas, NSS, vigencia de derechos y trámites de aseguramiento.</p>
+                        <span class="btn-text">Entrar <i class="fa-solid fa-chevron-right"></i></span>
+                    </div>
+                </div>
 
-    <div class="card clickable" onclick="ir('../tramites/altas.html')">
-      <div class="card-top"><i class="fa-solid fa-file"></i></div>
-      <div class="card-bottom"><h3>Alta Patronal</h3></div>
-    </div>
+                <div class="card-tramite" onclick="ir('../ventanillas/prestaciones.html')">
+                    <div class="card-icon"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+                    <div class="card-body">
+                        <h3>Prestaciones Económicas</h3>
+                        <p class="card-desc">Incapacidades, pensiones, subsidios y ayudas de gastos.</p>
+                        <span class="btn-text">Entrar <i class="fa-solid fa-chevron-right"></i></span>
+                    </div>
+                </div>
 
-    <div class="card clickable" onclick="ir('../tramites/nss.html')">
-      <div class="card-top"><i class="fa-solid fa-file"></i></div>
-      <div class="card-bottom"><h3>Número de Seguridad Social</h3></div>
-    </div>
-
-    <div class="card clickable" onclick="ir('../tramites/vigencia.html')">
-      <div class="card-top"><i class="fa-solid fa-file-lines"></i></div>
-      <div class="card-bottom"><h3>Vigencia de Derechos</h3></div>
-    </div>
-  </div>
-</section>
+                <div class="card-tramite" onclick="ir('../ventanillas/archivo.html')">
+                    <div class="card-icon"><i class="fa-solid fa-folder-tree"></i></div>
+                    <div class="card-body">
+                        <h3>Control Archivo Clínico</h3>
+                        <p class="card-desc">Citas médicas, expedientes y actualización de datos clínicos.</p>
+                        <span class="btn-text">Entrar <i class="fa-solid fa-chevron-right"></i></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <script src="../js/script.js"></script>
-  </body>
+</body>
 </html>

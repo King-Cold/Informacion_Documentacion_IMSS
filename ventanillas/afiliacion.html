@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Incapacidades | IMSS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --imss-verde: #006657;
+            --gob-guinda: #621132;
+            --gob-dorado: #D4C19C;
+            --gris-suave: #f4f4f4;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            color: #333;
+            -webkit-tap-highlight-color: transparent; /* Mejora tacto en móvil */
+        }
+
+        /* Cabecera Gobierno */
+        .nav-gob {
+            background-color: #006657;
+            padding: 10px 15px;
+            color: white;
+            font-size: 11px;
+            text-transform: uppercase;
+            font-weight: bolder;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Adaptación móvil para títulos */
+        h1 {
+            color: var(--gob-guinda);
+            font-size: 1.8rem;
+            border-bottom: 4px solid var(--gob-dorado);
+            padding-bottom: 8px;
+            margin-bottom: 25px;
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 1.5rem; }
+            .container { padding: 15px; }
+        }
+
+        /* Bloque de Información General */
+        .info-header {
+            background-color: var(--gris-suave);
+            border-left: 5px solid var(--gob-dorado);
+            padding: 20px;
+            border-radius: 4px;
+            margin-bottom: 30px;
+        }
+
+        .info-header h2 {
+            margin: 0 0 10px 0;
+            color: var(--gob-guinda);
+            font-size: 1.2rem;
+        }
+        button {
+          font-family: 'Montserrat', sans-serif;
+          font-weight: bolder;
+        }
+
+        /* --- SECCIÓN VERDE: PREGUNTAS FRECUENTES --- */
+        .faq-section h2 {
+            color: var(--imss-verde);
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .accordion {
+            background-color: #fff;
+            color: #333;
+            cursor: pointer;
+            padding: 16px;
+            width: 100%;
+            border: 1px solid #e0e0e0;
+            text-align: left;
+            font-size: 15px;
+            font-weight: 600;
+            margin-top: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 8px;
+            transition: 0.3s ease;
+        }
+
+        /* Solo el acordeón se vuelve verde al abrirse */
+        .accordion.active {
+            background-color: var(--imss-verde);
+            color: white;
+            border-color: var(--imss-verde);
+        }
+
+        .panel-faq {
+            background-color: #fff;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            border-radius: 0 0 8px 8px;
+            border-left: 2px solid var(--imss-verde);
+            border-right: 2px solid var(--imss-verde);
+        }
+
+        .panel-faq.show {
+            border-bottom: 2px solid var(--imss-verde);
+        }
+
+        .panel-faq p {
+            padding: 15px 20px;
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #444;
+        }
+
+        /* Botón Volver */
+        .btn-regresar {
+            display: block;
+            text-align: center;
+            margin-top: 40px;
+            padding: 15px;
+            background-color: var(--gob-guinda);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .btn-regresar:active {
+            transform: scale(0.98);
+            background-color: #480c25;
+        }
+    </style>
+</head>
+<body>
+
+<div class="nav-gob">UNIDAD MEDICA FAMILIAR No.20</div>
+
+<div class="container">
+    <h1>Incapacidades Médicas</h1>
+
+    <div class="info-header">
+        <h2><i class="fa-solid fa-circle-info"></i> Información</h2>
+        <p>Documento oficial para justificar la ausencia laboral y solicitar subsidios económicos ante el <strong>IMSS</strong>.</p>
+    </div>
+
+    <div class="faq-section">
+        <h2><i class="fa-solid fa-circle-question"></i> Preguntas frecuentes</h2>
+
+        <button class="accordion">
+            ¿Cuántos días dura una incapacidad?
+            <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="panel-faq">
+            <p>Es determinada por el médico tratante según el diagnóstico. En <strong>Enfermedad General</strong> puede ser de 1 a 30 días iniciales, prorrogables hasta 52 semanas.</p>
+        </div>
+
+        <button class="accordion">
+            ¿Dónde recojo mi incapacidad?
+            <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="panel-faq">
+            <p>Puedes obtenerla digitalmente en la app <strong>IMSS Digital</strong> o físicamente en el módulo de Control de Prestaciones de tu clínica.</p>
+        </div>
+
+        <button class="accordion">
+            ¿Cómo se paga mi subsidio?
+            <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="panel-faq">
+            <p>Se deposita directamente a tu cuenta bancaria. Recuerda registrar tu <strong>CLABE Interbancaria</strong> en el Escritorio Virtual o ventanilla.</p>
+        </div>
+    </div>
+
+    <a href="../index.html" class="btn-regresar">← Volver al inicio</a>
+</div>
+
+<script>
+    const acc = document.getElementsByClassName("accordion");
+    for (let i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            const panel = this.nextElementSibling;
+            const icon = this.querySelector("i");
+            
+            if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+                panel.classList.remove("show");
+                icon.classList.replace("fa-chevron-up", "fa-chevron-down");
+            } else {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+                panel.classList.add("show");
+                icon.classList.replace("fa-chevron-down", "fa-chevron-up");
+            }
+        });
+    }
+</script>
+
+</body>
+</html>
