@@ -10,7 +10,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap');
 
-body {
+html, body {
     margin: 0;
     font-family: 'Inter', sans-serif;
     background-color: var(--blanco);
@@ -18,6 +18,9 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
 }
 
 h1, h2, h3, h4, h5, h6, .titulo-masivo, .btn-neo-primario, .bento-info h4 {
@@ -47,6 +50,7 @@ h1, h2, h3, h4, h5, h6, .titulo-masivo, .btn-neo-primario, .bento-info h4 {
     z-index: 100;
     position: relative;
     padding: 10px 0;
+    box-sizing: border-box;
 }
 
 .flex-header {
@@ -98,12 +102,14 @@ h1, h2, h3, h4, h5, h6, .titulo-masivo, .btn-neo-primario, .bento-info h4 {
 
 /* --- SECCIÓN HERO MODERNA (BENTO GRID) --- */
 .seccion-hero-moderna {
+    width: 100%;
     min-height: calc(100vh - 120px);
     display: flex;
     align-items: center;
     padding: 60px 0;
     position: relative;
     overflow: hidden;
+    box-sizing: border-box;
 }
 
 .hero-image-full {
@@ -371,7 +377,46 @@ h1, h2, h3, h4, h5, h6, .titulo-masivo, .btn-neo-primario, .bento-info h4 {
     align-items: center;
 }
 
-/* --- RESPONSIVE (CELULAR) --- */
+/* --- RESPONSIVE (CELULAR Y TABLET) --- */
+@media (max-width: 1100px) {
+    .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+    
+    .hero-texto {
+        text-align: center;
+        align-items: center;
+    }
+    
+    .subtitulo-moderno {
+        max-width: 100%;
+    }
+
+    .hero-bento {
+        height: auto;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    }
+
+    .bento-card {
+        position: relative !important;
+        top: auto !important;
+        bottom: auto !important;
+        left: auto !important;
+        right: auto !important;
+        transform: none !important;
+        animation: none !important;
+        width: 320px !important;
+        margin-bottom: 0;
+    }
+    
+    .card-grafico { height: auto; }
+}
+
 @media (max-width: 768px) {
     .container-custom { padding: 0 15px; }
 

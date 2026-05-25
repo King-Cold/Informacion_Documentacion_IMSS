@@ -10,12 +10,15 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap');
 
-body {
+html, body {
     margin: 0;
     font-family: 'Inter', sans-serif;
     background-color: #f0fcf7; /* Verde menta extremadamente suave */
     background-image: radial-gradient(circle at 10% 20%, rgba(0, 210, 180, 0.12) 0%, transparent 40%),
                       radial-gradient(circle at 90% 80%, rgba(179, 142, 93, 0.12) 0%, transparent 40%);
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
 }
 
 h1, h2, h3, h4, h5, h6, .btn-volver-home, .migajas-pan {
@@ -42,6 +45,7 @@ h1, h2, h3, h4, h5, h6, .btn-volver-home, .migajas-pan {
     z-index: 100;
     position: relative;
     padding: 10px 0;
+    box-sizing: border-box;
 }
 
 .flex-header { display: flex; justify-content: space-between; align-items: center; }
@@ -67,6 +71,8 @@ h1, h2, h3, h4, h5, h6, .btn-volver-home, .migajas-pan {
     position: sticky;
     top: 0;
     z-index: 90;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .flex-nav { display: flex; align-items: center; position: relative; }
@@ -75,9 +81,16 @@ h1, h2, h3, h4, h5, h6, .btn-volver-home, .migajas-pan {
 .migajas-pan {
     display: flex;
     align-items: center;
-    gap: 12px;
-    font-size: 15px;
-    font-weight: 700;
+    gap: 6px;
+    font-size: 12.5px;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow-x: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.migajas-pan::-webkit-scrollbar {
+    display: none;
 }
 
 .migajas-pan a {
@@ -165,7 +178,7 @@ h1, h2, h3, h4, h5, h6, .btn-volver-home, .migajas-pan {
     transition: opacity 0.4s ease;
 }
 
-.card-body { padding: 0 25px 30px 25px; flex-grow: 1; display: flex; flex-direction: column; }
+.card-body { padding: 25px 25px 30px 25px; flex-grow: 1; display: flex; flex-direction: column; }
 .card-body h3 { font-size: 22px; color: #111; margin: 0 0 10px 0; font-weight: 800; letter-spacing: -0.5px; }
 .card-desc { font-size: 15px; color: #555; line-height: 1.6; margin-bottom: 25px; flex-grow: 1; }
 
