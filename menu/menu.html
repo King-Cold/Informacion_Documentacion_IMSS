@@ -6,28 +6,19 @@
     <title>IMSS - Ventanillas de Atención</title>
     <link rel="stylesheet" href="../css/estilos_contenido.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="../js/layout.js" defer></script>
 </head>
 
 <body>
-    <header class="panel-superior">
-        <div class="container-custom flex-header">
-            <div class="logos-brand">
-                <img src="../img/logo-gobierno.png" alt="Gobierno de México" class="logo-gob-header">
-                <div class="separador-logos"></div>
-                <img src="../img/logo-imss.png" alt="IMSS" class="logo-imss">
-            </div>
-            <div class="unidad-info">
-                <span class="umf">Unidad de Medicina Familiar No. 20</span>
-            </div>
-        </div>
-    </header>
+    <imss-header path-prefix="../"></imss-header>
 
     <nav class="navbar-secundaria">
         <div class="container-custom flex-nav">
-            <a href="../index.html" class="btn-volver-home">
-                <i class="fa-solid fa-house"></i> <span>Inicio</span>
-            </a>
-            <h2>Centro de Solicitudes</h2>
+            <div class="migajas-pan">
+                <a href="../index.html">Inicio</a>
+                <span class="separador">/</span>
+                <span class="actual">Ventanillas de Atención</span>
+            </div>
         </div>
     </nav>
 
@@ -69,6 +60,7 @@
         </section>
     </main>
 
+    <imss-footer></imss-footer>
     <script src="../js/script.js"></script>
 </body>
 </html>

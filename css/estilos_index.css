@@ -1,6 +1,6 @@
 :root {
     --verde-imss: #006657;
-    --verde-hover: #00b360;
+    --verde-hover: #019982;
     --guinda-gob: #9D2449;
     --dorado-gob: #B38E5D;
     --negro-footer: #1a1a1a;
@@ -8,16 +8,20 @@
     --blanco: #FFFFFF;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap');
 
 body {
     margin: 0;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Inter', sans-serif;
     background-color: var(--blanco);
     color: var(--texto);
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6, .titulo-masivo, .btn-neo-primario, .bento-info h4 {
+    font-family: 'Poppins', sans-serif;
 }
 
 /* Contenedor Base con Aire en los Bordes para PC */
@@ -31,10 +35,18 @@ body {
 
 /* --- HEADER --- */
 .panel-superior {
-    background: #fff;
-    padding: 15px 0;
-    border-bottom: 4px solid var(--dorado-gob);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+    z-index: 100;
+    position: relative;
+    padding: 10px 0;
 }
 
 .flex-header {
@@ -42,6 +54,10 @@ body {
     justify-content: space-between;
     align-items: center;
     gap: 20px;
+}
+
+.header-centrado {
+    justify-content: center !important;
 }
 
 .logos-brand {
@@ -80,84 +96,265 @@ body {
     line-height: 1.2;
 }
 
-/* --- SECCIÓN HERO (FONDO TOTAL) --- */
-.seccion-hero {
-    flex: 1;
-    position: relative;
+/* --- SECCIÓN HERO MODERNA (BENTO GRID) --- */
+.seccion-hero-moderna {
+    min-height: calc(100vh - 120px);
     display: flex;
     align-items: center;
     padding: 60px 0;
+    position: relative;
+    overflow: hidden;
 }
 
 .hero-image-full {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    background-image: url('../img/imss2.png'); /* Asegúrate de que la ruta sea correcta */
+    background-image: url('../img/clinic_hero_bg.png'); /* Imagen de fondo */
     background-size: cover;
     background-position: center;
-    z-index: 1;
+    z-index: 0;
 }
 
 .hero-image-full::after {
     content: '';
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(255, 255, 255, 0.5); /* Capa ligera para claridad */
+    /* Un gradiente ultra claro encima de la foto para que no afecte la lectura ni choque con el look limpio */
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.96) 0%, rgba(248, 250, 252, 0.85) 100%);
 }
 
 .relative-content { position: relative; z-index: 2; }
 
-/* Tarjeta Flotante */
-.card-info-glass {
-    max-width: 520px;
-    background-color: rgba(255, 255, 255, 0.96);
-    padding: 45px;
-    border-radius: 8px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.12);
-    border-top: 5px solid var(--guinda-gob);
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    z-index: 2;
 }
 
-.badge-oficial {
-    color: var(--guinda-gob);
-    background: rgba(157, 36, 73, 0.08);
-    display: inline-block;
-    padding: 6px 14px;
-    border-radius: 4px;
-    font-weight: 700;
-    font-size: 11px;
-    margin-bottom: 20px;
+/* Lado Izquierdo */
+.hero-texto {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
 }
 
-h1 { font-size: 45px; font-weight: 800; line-height: 1; margin: 0; color: #111; }
-
-.divisor {
-    width: 160px;
-    height: 5px;
-    background-color: var(--guinda-gob);
-    margin: 25px 0;
-}
-
-p { font-size: 18px; color: #444; line-height: 1.6; margin-bottom: 35px; }
-
-.boton-primario {
+.badge-tech {
     display: inline-flex;
     align-items: center;
-    gap: 12px;
-    background-color: var(--verde-imss);
-    color: white;
-    padding: 18px 40px;
-    text-decoration: none;
+    gap: 10px;
+    background: rgba(0, 102, 87, 0.06);
+    border: 1px solid rgba(0, 102, 87, 0.15);
+    color: var(--verde-imss);
     font-weight: 700;
+    font-size: 12px;
+    padding: 8px 16px;
     border-radius: 50px;
-    transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    box-shadow: 0 5px 15px rgba(0, 143, 76, 0.3);
+    width: fit-content;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-.boton-primario:hover {
-    background-color: var(--verde-hover);
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(0, 143, 76, 0.4);
+.punto-verde {
+    width: 8px;
+    height: 8px;
+    background: #00d2b4;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 210, 180, 0.8);
+    animation: pulseDot 2s infinite;
 }
+
+@keyframes pulseDot {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 210, 180, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(0, 210, 180, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 210, 180, 0); }
+}
+
+.titulo-masivo {
+    font-size: 72px;
+    font-weight: 900;
+    line-height: 1.05;
+    margin: 0;
+    color: #111;
+    letter-spacing: -2px;
+}
+
+.texto-gradiente {
+    background: linear-gradient(135deg, var(--verde-imss) 0%, #00d2b4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.subtitulo-moderno {
+    font-size: 19px;
+    color: #333;
+    line-height: 1.6;
+    max-width: 90%;
+    margin: 0;
+    font-weight: 500;
+}
+
+.botones-hero {
+    margin-top: 15px;
+}
+
+.btn-neo-primario {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    background: #111;
+    color: white;
+    padding: 16px 20px 16px 35px;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.btn-icono-flecha {
+    background: white;
+    color: #111;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.4s ease;
+}
+
+.btn-neo-primario:hover {
+    background: var(--verde-imss);
+    transform: translateY(-3px);
+    box-shadow: 0 25px 50px rgba(0, 102, 87, 0.25);
+}
+
+.btn-neo-primario:hover .btn-icono-flecha {
+    transform: translateX(5px);
+}
+
+/* Lado Derecho (Bento) */
+.hero-bento {
+    position: relative;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.glow-orb-moderno {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(0, 210, 180, 0.15) 0%, rgba(0, 102, 87, 0.05) 40%, rgba(255,255,255,0) 70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.bento-card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.06), inset 0 0 0 1px rgba(255,255,255,0.5);
+    position: absolute;
+    z-index: 2;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.bento-card:hover {
+    transform: translateY(-10px) !important;
+    box-shadow: 0 30px 60px rgba(0, 102, 87, 0.12);
+}
+
+.card-afiliacion {
+    top: 10%;
+    right: 5%;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 320px;
+}
+
+.card-rapido {
+    bottom: 20%;
+    left: 0;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 260px;
+}
+
+.card-grafico {
+    top: 45%;
+    right: 20%;
+    width: 200px;
+    height: 140px;
+    background: linear-gradient(135deg, var(--verde-imss) 0%, #00d2b4 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 800;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    border: none;
+}
+
+.glass-overlay-full {
+    width: 100%;
+    font-size: 15px;
+    font-weight: 800;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.bento-icon, .bento-icon-circulo {
+    width: 50px;
+    height: 50px;
+    border-radius: 14px;
+    background: rgba(0, 102, 87, 0.08);
+    color: var(--verde-imss);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.bento-icon-circulo { border-radius: 50%; }
+
+.bento-info h4, .bento-info-compact h4 { margin: 0 0 5px 0; font-size: 18px; color: #111; }
+.bento-info p { margin: 0; font-size: 14px; color: #666; }
+.status-ok { font-size: 13px; color: #00a86b; font-weight: 700; display: flex; align-items: center; gap: 5px; }
+
+/* Animaciones Entrada */
+.fade-up-1 { animation: fadeUpAnim 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
+.fade-up-2 { animation: fadeUpAnim 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; opacity: 0; animation-delay: 0.2s; }
+
+@keyframes fadeUpAnim {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.float-anim-1 { animation: float1 6s infinite ease-in-out; }
+.float-anim-2 { animation: float2 5s infinite ease-in-out reverse; }
+.float-anim-3 { animation: float3 7s infinite ease-in-out; }
+
+@keyframes float1 { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+@keyframes float2 { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+@keyframes float3 { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-8px) rotate(2deg); } }
 
 /* --- FOOTER COMPACTO --- */
 .footer-compacto {
@@ -176,12 +373,22 @@ p { font-size: 18px; color: #444; line-height: 1.6; margin-bottom: 35px; }
 
 /* --- RESPONSIVE (CELULAR) --- */
 @media (max-width: 768px) {
-    .container-custom { padding: 0 20px; }
+    .container-custom { padding: 0 15px; }
+
+    .panel-superior {
+        margin: 0;
+        border-radius: 0;
+        padding: 15px 20px;
+        background: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 10px 30px rgba(0, 102, 87, 0.08);
+        border: none;
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
 
     /* Header no achocado */
     .flex-header {
         flex-direction: column;
-        gap: 12px;
+        gap: 15px;
         text-align: center;
         padding: 5px 0;
     }
@@ -193,29 +400,53 @@ p { font-size: 18px; color: #444; line-height: 1.6; margin-bottom: 35px; }
     .unidad-info {
         text-align: center;
         width: 100%;
-        border-top: 1px solid #f0f0f0;
-        padding-top: 10px;
+        border-top: 1px solid rgba(0,0,0,0.06);
+        padding-top: 15px;
+    }
+    
+    .umf { font-size: 15px; display: block; padding: 0 10px; }
+    .instituto { font-size: 10px; }
+
+    /* Hero Moderno en Móvil */
+    .seccion-hero-moderna { 
+        padding: 20px 0 40px 0; 
+        min-height: auto;
     }
 
-    /* Hero en móvil */
-    .seccion-hero { padding: 30px 0; }
-    
-    .card-info-glass {
-        padding: 35px 25px;
-        max-width: 100%;
+    .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .hero-texto {
         text-align: center;
-        background-color: rgba(255,255,255,0.98);
+        align-items: center;
+        gap: 20px;
     }
 
-    h1 { font-size: 30px; }
-    .divisor { margin: 20px auto; }
+    .titulo-masivo { font-size: 44px; letter-spacing: -1px; }
+    .subtitulo-moderno { font-size: 16px; max-width: 100%; }
     
-    .boton-primario {
-        width: 100%;
-        justify-content: center;
-        box-sizing: border-box;
+    .hero-bento {
+        height: auto;
+        margin-top: 10px;
     }
+
+    .bento-card {
+        position: relative;
+        top: auto !important;
+        right: auto !important;
+        left: auto !important;
+        bottom: auto !important;
+        margin-bottom: 15px;
+        width: 100% !important;
+        transform: none !important;
+        animation: none !important;
+        padding: 20px !important;
+    }
+    
+    .card-grafico { height: auto; }
 
     /* Footer en móvil */
-    .footer-flex { flex-direction: column; gap: 8px; text-align: center; }
+    .footer-flex { flex-direction: column; gap: 12px; text-align: center; }
 }
